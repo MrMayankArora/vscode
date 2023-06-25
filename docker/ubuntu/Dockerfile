@@ -1,4 +1,6 @@
-FROM httpd
+FROM ubuntu
 RUN apt-get update
-ADD index1.html /usr/local/apache2/htdocs
-ADD index2.html /usr/local/apache2/htdocs
+RUN apt-get install -y apache2
+ADD index.html /var/www/html
+ENTRYPOINT apachectl -D FOREGROUND
+ENV name DevOps Intellipaat
